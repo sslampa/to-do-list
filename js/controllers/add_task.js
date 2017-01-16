@@ -1,8 +1,6 @@
 $(document).ready(function() {
-  var test = []
-
   // Data can be saved
-  $(".submit").on("click", function() {
+  $(".add-submit").on("click", function() {
     var title = $('.add-title').val();
     var desc = $('.add-desc').val();
     var date = $('.add-date').val();
@@ -17,10 +15,10 @@ $(document).ready(function() {
     } else {
       $(".add-title").val("");
       $(".add-desc").val("");
-      $(".add-date").val("");
-      $(".add-time").val("");
-      test.push(new createTask(title, desc, date, time))
-      $(".list").append("<p>" + JSON.stringify(test) + "</p>");
+      //$(".add-date").val("");
+      //$(".add-time").val("");
+      add_task(title, desc, date, time);
+      console.log(allTasks.count);
       console.log(valid_d.message);
       console.log(valid_t.message);
     }
@@ -30,11 +28,29 @@ $(document).ready(function() {
     console.log(time);
   })
 
+  // Shows form field
   $(".add-task").on("click", function() {
     $(".add-open").slideToggle();
   })
+
+  // Dynamically creates things magically
+  $(".list").on("click", ".open", function() {
+    $(this).next('.to-close').slideToggle()
+  })
 });
 
+// Adds to list
+function add_task(title, desc, date, time) {
+  var newTask = new createTask(title, desc, date, time);
+
+  allTasks.tasks.push(newTask);
+  $(".list").append("<div class='all-" + allTasks.count.toString() + "'></div>");
+  $(".all-" + allTasks.count.toString()).append("<h1 class='open'>" + title + "</h1>");
+  $(".all-" + allTasks.count.toString()).append("<p class='to-close'>" + desc + "</p>");
+  allTasks.add();
+}
+
+// Validates time
 function validate_time(time) {
   var regex = /[0-9]{2}:[0-9]{2}/;
   if (time.match(regex) === null) {
@@ -58,7 +74,7 @@ function validate_time(time) {
 // console.log(validate_time("25:01"));
 // console.log(validate_time("00:00")); //true
 
-
+// Validates date
 function validate_date(date) {
   var regex = /[0-9]{2}\/[0-9]{2}\/[0-9]{4}/;
   if (date.match(regex) === null) {

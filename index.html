@@ -6,9 +6,10 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous">
     </script>
+    <script src="./js/models/create_task.js"></script>
+    <script src="./js/models/create_tag.js"></script>
     <script src="./js/controllers/add_task.js"></script>
     <script src="./js/controllers/sort_task.js"></script>
-    <script src="./js/models/task.js"></script>
     <link rel="stylesheet" type="text/css" href="./stylesheets/add_task.css">
   </head>
   <body>
@@ -17,8 +18,8 @@
     <div class="add-open">
       <input class="add-title" type="text" placeholder="Title" />
       <input class="add-desc" type="text" placeholder="Description" />
-      <input class="add-date" type="text" placeholder="Ex. 01/31/2017" />
-      <input class="add-time" type="text" placeholder="Ex. 15:30" />
+      <input class="add-date" type="text" placeholder="Ex. 01/31/2017" value="01/30/2017"/>
+      <input class="add-time" type="text" placeholder="Ex. 15:30" value="15:30"/>
       <button class="add-submit">Submit</button>
     </div>
     <div class="list">
