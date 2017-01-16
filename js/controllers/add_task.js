@@ -1,10 +1,27 @@
 $(document).ready(function() {
+
+  // At the beginning
+  add_tags(".tags", allTags);
+
+  $(".submit-tag").on("click", function() {
+    var newTag = [$(".add-tag").val()];
+    console.log(newTag);
+    if (newTag !== null && newTag != "") {
+      add_tags(".tags", newTag)
+    }
+  })
   // Data can be saved
-  $(".add-submit").on("click", function() {
+  $(".submit-task").on("click", function() {
     var title = $('.add-title').val();
     var desc = $('.add-desc').val();
     var date = $('.add-date').val();
-    var time = $('.add-time').val()
+    var time = $('.add-time').val();
+    var tags = [];
+    $('input[name="tags"]:checked').each(function() {
+      tags.push($(this).val());
+    })
+
+    console.log(tags);
 
     valid_d = validate_date(date);
     valid_t = validate_time(time);
@@ -17,10 +34,11 @@ $(document).ready(function() {
       $(".add-desc").val("");
       //$(".add-date").val("");
       //$(".add-time").val("");
-      add_task(title, desc, date, time);
+      add_task(title, desc, date, time, tags);
       console.log(allTasks.count);
       console.log(valid_d.message);
       console.log(valid_t.message);
+      console.log(allTasks.tasks);
     }
     console.log(title);
     console.log(desc);
@@ -39,9 +57,19 @@ $(document).ready(function() {
   })
 });
 
+// Adds tags to the right place
+function add_tags(className, allTags) {
+  allTags.forEach(function(e) {
+    if (e !== "All") {
+      $(className).prepend("<label>" + e + "</label>")
+      $(className).prepend("<input name='tags' type='checkbox' value='" + e + "'>")
+    }
+  })
+}
+
 // Adds to list
-function add_task(title, desc, date, time) {
-  var newTask = new createTask(title, desc, date, time);
+function add_task(title, desc, date, time, tags) {
+  var newTask = new createTask(title, desc, date, time, tags, allTasks.count);
 
   allTasks.tasks.push(newTask);
   $(".list").append("<div class='all-" + allTasks.count.toString() + "'></div>");

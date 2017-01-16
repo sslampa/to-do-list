@@ -11,4 +11,4 @@ function createTag(name) {
 }
 
 var allTasks = new createTag("All");
-var allTags = [allTasks.name];
+var allTags = [allTasks.name, "Xavier", "baag"];

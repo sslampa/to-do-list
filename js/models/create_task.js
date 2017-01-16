@@ -8,13 +8,14 @@
 ** tags: [String] - Which groups task is a part of
 */
 
-function createTask(newTitle, newDesc, newEndDate, newEndTime, newTags) {
+function createTask(newTitle, newDesc, newEndDate, newEndTime, newTags, newId) {
   return {
     title: newTitle,
     desc: newDesc,
     endDate: newEndDate,
     endTime: newEndTime,
     complete: false,
-    tags: newTags
+    tags: newTags,
+    id: newId
   };
 }

@@ -3,3 +3,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   height: 100px;
 }
+
+.open {
+  background-color: rgba(186, 28, 30, 0.5);
+}
