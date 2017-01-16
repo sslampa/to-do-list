@@ -69,9 +69,10 @@ function add_tags(className, allTags) {
 
 // Show tasks in list
 function show_task(title, desc, date, time, tags, id) {
-  $(".list").append("<div class='all-" + id.toString() + "'></div>");
-  $(".all-" + id.toString()).append("<h1 class='open'>" + title + "</h1>");
-  $(".all-" + id.toString()).append("<p class='to-close'>" + desc + "</p>");
+  $(".list").append("<div class='listings' id='all-" + id.toString() + "'></div>");
+  $("#all-" + id.toString()).append("<h1 class='open'>" + title + "</h1>");
+  $("#all-" + id.toString()).append("<p class='to-close'>" + desc + "</p>");
+  $("#all-" + id.toString()).append("<button class='remove'>Remove</button>")
 }
 
 // Adds to list
