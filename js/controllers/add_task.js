@@ -6,7 +6,7 @@ $(document).ready(function() {
   $(".submit-tag").on("click", function() {
     var newTag = [$(".add-tag").val()];
     console.log(newTag);
-    if (newTag !== null && newTag != "") {
+    if ((newTag !== null) && (newTag != "") && (allTags.includes(newTag))) {
       add_tags(".tags", newTag)
     }
   })
@@ -16,7 +16,7 @@ $(document).ready(function() {
     var desc = $('.add-desc').val();
     var date = $('.add-date').val();
     var time = $('.add-time').val();
-    var tags = [];
+    var tags = ["All"];
     $('input[name="tags"]:checked').each(function() {
       tags.push($(this).val());
     })
@@ -67,14 +67,18 @@ function add_tags(className, allTags) {
   })
 }
 
+// Show tasks in list
+function show_task(title, desc, date, time, tags, id) {
+  $(".list").append("<div class='all-" + id.toString() + "'></div>");
+  $(".all-" + id.toString()).append("<h1 class='open'>" + title + "</h1>");
+  $(".all-" + id.toString()).append("<p class='to-close'>" + desc + "</p>");
+}
+
 // Adds to list
 function add_task(title, desc, date, time, tags) {
   var newTask = new createTask(title, desc, date, time, tags, allTasks.count);
-
   allTasks.tasks.push(newTask);
-  $(".list").append("<div class='all-" + allTasks.count.toString() + "'></div>");
-  $(".all-" + allTasks.count.toString()).append("<h1 class='open'>" + title + "</h1>");
-  $(".all-" + allTasks.count.toString()).append("<p class='to-close'>" + desc + "</p>");
+  show_task(title, desc, date, time, tags, newTask.id);
   allTasks.add();
 }
 
