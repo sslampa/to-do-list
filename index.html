@@ -7,19 +7,21 @@
       crossorigin="anonymous">
     </script>
     <script src="./js/controllers/add_task.js"></script>
+    <script src="./js/controllers/sort_task.js"></script>
     <script src="./js/models/task.js"></script>
     <link rel="stylesheet" type="text/css" href="./stylesheets/add_task.css">
   </head>
   <body>
-    <div id="add">
-      <button class="close-task">&times;</button>
-      <input class="add-title" type="text" placeholder="Title" />
-      <input class="add-desc" type="text" placeholder="Description" />
-      <input class="add-date" type="text" placeholder="Ex. 01/31/2017, Month/Day/Year" />
-      <input class="add-time" type="text" placeholder="Ex. 12:30, 24-Hour Format"  />
-      <button class="submit">Add Task</button />
-    </div>
     <h1>Hello World</h1>
     <button class="add-task">Add Task</button>
+    <div class="add-open">
+      <input class="add-title" type="text" placeholder="Title" />
+      <input class="add-desc" type="text" placeholder="Description" />
+      <input class="add-date" type="text" placeholder="Ex. 01/31/2017" />
+      <input class="add-time" type="text" placeholder="Ex. 15:30" />
+      <button class="add-submit">Submit</button>
+    </div>
+    <div class="list">
+    </div>
   </body>
 </html>

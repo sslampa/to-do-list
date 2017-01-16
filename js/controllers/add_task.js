@@ -1,32 +1,37 @@
 $(document).ready(function() {
   var test = []
 
-  // Shows fullscreen form to add task
-  $(".add-task").on("click", function() {
-    $("#add").css("height", "100%");
-  });
-
-  // Closes fullscreen form to add task
-  $(".close-task").on("click", function() {
-    $("#add").css("height", "0%");
-  });
-
   // Data can be saved
   $(".submit").on("click", function() {
     var title = $('.add-title').val();
     var desc = $('.add-desc').val();
     var date = $('.add-date').val();
     var time = $('.add-time').val()
+
     valid_d = validate_date(date);
-    if (valid_d.pass) {
-      alert(valid_d.message);
+    valid_t = validate_time(time);
+
+    if (!valid_d.pass && !valid_t.pass) {
+      console.log(valid_d.message);
+      console.log(valid_t.message);
     } else {
-      alert(valid_d.message);
+      $(".add-title").val("");
+      $(".add-desc").val("");
+      $(".add-date").val("");
+      $(".add-time").val("");
+      test.push(new createTask(title, desc, date, time))
+      $(".list").append("<p>" + JSON.stringify(test) + "</p>");
+      console.log(valid_d.message);
+      console.log(valid_t.message);
     }
     console.log(title);
     console.log(desc);
     console.log(date);
     console.log(time);
+  })
+
+  $(".add-task").on("click", function() {
+    $(".add-open").slideToggle();
   })
 });
 
@@ -45,7 +50,7 @@ function validate_time(time) {
     return {pass: false, message: "Minutes not in range"};
   }
 
-  return {pass: true, message: "Success"};
+  return {pass: true, message: "Success!"};
 }
 
 // console.log(validate_time("03:30")); //true
