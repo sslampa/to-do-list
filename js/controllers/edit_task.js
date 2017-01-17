@@ -24,8 +24,13 @@ $(document).ready(function() {
     var valid_t = validate_time(time);
 
     if (!valid_d.pass || !valid_t.pass) {
-      alert(valid_d.message);
-      alert(valid_t.message);
+      if (!valid_d.pass) {
+        alert(valid_d.message);
+      }
+
+      if (!valid_t.pass) {
+        alert(valid_t.message);
+      }
     } else {
       edit_task(id, title, desc, date, time);
       edit_list(id, title, desc, date, time);

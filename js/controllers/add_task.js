@@ -36,8 +36,13 @@ $(document).ready(function() {
     // Either alerts the user of invalid date/time or adds a new task
     // Possible feature: Add to actual page instead of alerts
     if (!valid_d.pass || !valid_t.pass) {
-      alert(valid_d.message);
-      alert(valid_t.message);
+      if (!valid_d.pass) {
+        alert(valid_d.message);
+      }
+
+      if (!valid_t.pass) {
+        alert(valid_t.message);
+      }
     } else {
       $(".add-title").val("");
       $(".add-desc").val("");
@@ -105,7 +110,7 @@ function add_task(title, desc, date, time, tags) {
 // console.log(validate_time("25:01"));
 // console.log(validate_time("00:00")); //true
 function validate_time(time) {
-  var regex = /[0-9]{2}:[0-9]{2}/;
+  var regex = /^[0-9]{2}:[0-9]{2}$/;
 
   if (time.match(regex) === null) {
     return {pass: false, message: "Wrong format"};
@@ -143,7 +148,7 @@ function validate_time(time) {
 // console.log(validate_date("01/01/2020")); //true
 // console.log(validate_date("01/01/2006"));
 function validate_date(date) {
-  var regex = /[0-9]{2}\/[0-9]{2}\/[0-9]{4}/;
+  var regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
   if (date.match(regex) === null) {
     return {pass: false, message: "Wrong format"};
   }
