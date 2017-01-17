@@ -6,6 +6,24 @@
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
       crossorigin="anonymous">
     </script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+
+      <!-- Optional theme -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+
+      <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous">
+    </script>
     <script src="./js/models/create_task.js"></script>
     <script src="./js/models/create_tag.js"></script>
     <script src="./js/controllers/add_task.js"></script>
@@ -14,29 +32,48 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/add_task.css">
   </head>
   <body>
+
     <h1>Hello World</h1>
+    <div class="container-fluid">
 
-    <!-- For adding tasks -->
-    <button class="add-task">Add Task</button>
-    <div class="add-open">
-      <input class="add-title" type="text" placeholder="Title" />
-      <input class="add-desc" type="text" placeholder="Description" />
-      <input class="add-date" type="text" placeholder="Ex. 01/31/2017" value="01/30/2017"/>
-      <input class="add-time" type="text" placeholder="Ex. 15:30" value="15:30"/>
-      <button class="submit-task">Submit</button>
-      <div class="tags">
-        <input class="add-tag" type="text" placeholder="Tag" />
-        <button class="submit-tag">+</button>
+      <!-- For adding tasks -->
+      <div class="row">
+      <button class="add-task">Add Task</button>
+        <div class="add-open">
+          <div class=".col-md12">
+            <input class="add-title" type="text" placeholder="Title" />
+            <input class="add-desc" type="text" placeholder="Description" />
+            <input class="add-date" type="text" placeholder="Ex. 01/31/2017" value="01/30/2017"/>
+            <input class="add-time" type="text" placeholder="Ex. 15:30" value="15:30"/>
+            <button class="submit-task">Submit</button>
+            <div class="tags">
+              <input class="add-tag" type="text" placeholder="Tag" />
+              <button class="submit-tag">+</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- For sorting by tags -->
-    <div class="sort">
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class=".col-md12">
+            <!-- For sorting by tags -->
+            <div class="sort">
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Shows tasks -->
-    <div class="list">
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class=".col-md12">
+            <!-- Shows tasks -->
+            <div class="list">
+            </div>
+          </div>
+        </div>
+      </div>
 
+    </div>
   </body>
 </html>

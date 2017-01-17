@@ -9,9 +9,11 @@ $(document).ready(function() {
     if ((newTag !== null) && (newTag != "") && (!allTags.includes(newTag[0]))) {
       add_tags(".tags", newTag);
       allTags.push(newTag[0]);
+      $(".sort").empty();
+      sort_tags(".sort", allTags);
     }
   })
-  
+
   // Data can be saved
   $(".submit-task").on("click", function() {
     var title = $('.add-title').val();
