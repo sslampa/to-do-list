@@ -34,7 +34,6 @@ $(document).ready(function() {
     var valid_t = validate_time(time);
 
     // Either alerts the user of invalid date/time or adds a new task
-    // Possible feature: Add to actual page instead of alerts
     if (!valid_d.pass || !valid_t.pass) {
       if (!valid_d.pass) {
         alert(valid_d.message);
@@ -46,8 +45,8 @@ $(document).ready(function() {
     } else {
       $(".add-title").val("");
       $(".add-desc").val("");
-      //$(".add-date").val("");
-      //$(".add-time").val("");
+      $(".add-date").val("");
+      $(".add-time").val("");
       add_task(title, desc, date, time, tags);
     }
   })

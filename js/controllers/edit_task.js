@@ -1,28 +1,35 @@
 $(document).ready(function() {
+
+  // On click, changes the clicked task's information to show edit forms
   $(".task-list").on("click", ".edit", function() {
     var currentId = $(this).parent().parent().attr("id");
     var idToEdit = parseInt(currentId.split("-")[1]);
 
+    // Finds the index of the current task in the allTasks array
     var index = allTasks.tasks.findIndex(function(e) {
       return e.id === idToEdit;
     });
-
     var currentTask = allTasks.tasks[index];
 
+    // Hides the clicked task's information and shows edit forms
     $(this).parent().children().hide();
     show_edit(currentId, currentTask.title, currentTask.desc,
       currentTask.endDate, currentTask.endTime);
   })
 
+  // Edits task in the allTasks array and then updates it in the view
   $(".task-list").on("click", ".submit-edit", function() {
     var title = $('.edit-title').val();
     var desc = $('.edit-desc').val();
     var date = $('.edit-date').val();
     var time = $('.edit-time').val();
     var id = $('.edit-id').val();
+
+    // Returns true/false based on if the given values are valid
     var valid_d = validate_date(date);
     var valid_t = validate_time(time);
 
+    // Either alerts the user of invalid date/time or edits/shows the edited task
     if (!valid_d.pass || !valid_t.pass) {
       if (!valid_d.pass) {
         alert(valid_d.message);
@@ -32,6 +39,7 @@ $(document).ready(function() {
         alert(valid_t.message);
       }
     } else {
+      // Updates the view
       edit_task(id, title, desc, date, time);
       edit_list(id, title, desc, date, time);
       $(this).parent().parent().children().show();
