@@ -20,7 +20,7 @@ $(document).ready(function() {
     // Shows all tasks for given tag
     toSort.forEach(function(e) {
       // Function, show_task(), found in add_task.js
-      show_task(e.title, e.desc, e.date, e.time, e.tags, e.id);
+      show_task(e.title, e.desc, e.endDate, e.endTime, e.tags, e.id);
     })
   })
 });
@@ -28,6 +28,7 @@ $(document).ready(function() {
 // Adds sort tags to given div.className
 function sort_tags(className, allTags) {
   allTags.forEach(function(e) {
-    $(className).append("<button class='sort-tags btn btn-default'>" + e + "</button>");
+    $(className).append("<button class='sort-tags btn btn-default'>" +
+      e + "</button>");
   })
 }

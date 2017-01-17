@@ -35,8 +35,8 @@ $(document).ready(function() {
 
     // Either alerts the user of invalid date/time or adds a new task
     // Possible feature: Add to actual page instead of alerts
-    if (!valid_d.pass && !valid_t.pass) {
-      alert(valid_t.message);
+    if (!valid_d.pass || !valid_t.pass) {
+      alert(valid_d.message);
       alert(valid_t.message);
     } else {
       $(".add-title").val("");
@@ -64,24 +64,30 @@ function add_tags(className, allTags) {
   allTags.forEach(function(e) {
     if (e !== "All") {
       $(className).prepend("<label>" + e + "</label>")
-      $(className).prepend("<input name='tags' type='checkbox' value='" + e + "'>")
+      $(className).prepend("<input name='tags' type='checkbox' value='" +
+        e + "'>")
     }
   })
 }
 
 // Show tasks in listing area
 function show_task(title, desc, date, time, tags, id) {
-  $(".task-list").append("<div class='listings' id='all-" + id.toString() + "'></div>");
-  $("#all-" + id.toString()).append("<h1 class='open text-center'>" + title + "</h1>");
+  $(".task-list").append("<div class='listings' id='all-" + id.toString()
+    + "'></div>");
+  $("#all-" + id.toString()).append("<button class='open text-center btn btn-block'><h2>" + title
+    + "</h2></button>");
   $("#all-" + id.toString()).append("<div class='to-close'></div>");
   $("#all-" + id.toString() + " .to-close").append("<h4>Task:</h4>");
-  $("#all-" + id.toString() + " .to-close").append("<p>" + title + "</p>");
+  $("#all-" + id.toString() + " .to-close").append("<p class='show-title'>" + title + "</p>");
   $("#all-" + id.toString() + " .to-close").append("<h4>Description:</h4>");
-  $("#all-" + id.toString() + " .to-close").append("<p>" + desc + "</p>");
+  $("#all-" + id.toString() + " .to-close").append("<p class='show-desc'>" + desc + "</p>");
   $("#all-" + id.toString() + " .to-close").append("<h4>End:</h4>");
-  $("#all-" + id.toString() + " .to-close").append("<p>" + date + " " + time + "</p>");
+  $("#all-" + id.toString() + " .to-close").append("<p class='show-end'>" + date + " "
+    + time + "</p>");
   $("#all-" + id.toString() + " .to-close")
     .append("<button class='remove btn btn-danger'>Remove</button>");
+  $("#all-" + id.toString() + " .to-close")
+    .append("<button class='edit btn btn-default'>Edit</button");
 }
 
 // Adds to list allTasks array
