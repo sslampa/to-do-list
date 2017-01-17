@@ -6,10 +6,12 @@ $(document).ready(function() {
   $(".submit-tag").on("click", function() {
     var newTag = [$(".add-tag").val()];
     console.log(newTag);
-    if ((newTag !== null) && (newTag != "") && (allTags.includes(newTag))) {
-      add_tags(".tags", newTag)
+    if ((newTag !== null) && (newTag != "") && (!allTags.includes(newTag[0]))) {
+      add_tags(".tags", newTag);
+      allTags.push(newTag[0]);
     }
   })
+  
   // Data can be saved
   $(".submit-task").on("click", function() {
     var title = $('.add-title').val();
