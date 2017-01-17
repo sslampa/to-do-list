@@ -1,8 +1,30 @@
 .add-open, .to-close {
   display: none;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #728cb0;
+}
+
+.add-open {
+  margin: auto;
+  padding: 10px;
+}
+
+.to-close {
+  margin: auto;
+  width: 75%;
+  padding: 10px;
 }
 
 .open {
-  background-color: rgba(186, 28, 30, 0.5);
+  background-color: #13A1CB;
+  width: 90%;
+  margin: 10px auto;
+
+}
+
+label {
+  margin-right: 5px;
+}
+
+.btn-danger {
+  background-color: #e23d80;
 }

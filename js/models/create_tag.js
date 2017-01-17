@@ -1,5 +1,6 @@
+// Creates a Tag object that holds an array of every task
+// count and add() are used to add IDs to every new task
 function createTag(name) {
-
   return {
     name: name,
     tasks: [],
@@ -10,5 +11,8 @@ function createTag(name) {
   };
 }
 
+// Initializes "All" tag that holds every new task
 var allTasks = new createTag("All");
-var allTags = [allTasks.name, "Reading", "Exercise", "Shopping"];
+
+// Initializes default tags
+var allTags = [allTasks.name, "Studying", "Exercise", "Shopping"];

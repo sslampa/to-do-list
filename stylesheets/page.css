@@ -1,3 +1,9 @@
-h1 {
-  color: red;
+.jumbotron {
+  background-color: #eb77a6;
+  color: white;
+  /*height: 150px;*/
+}
+
+h1, h4, p {
+  color: white;
 }

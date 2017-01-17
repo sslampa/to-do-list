@@ -29,51 +29,53 @@
     <script src="./js/controllers/add_task.js"></script>
     <script src="./js/controllers/sort_task.js"></script>
     <script src="./js/controllers/remove_task.js"></script>
+    <script src="./js/controllers/edit_task.js"></script>
     <link rel="stylesheet" type="text/css" href="./stylesheets/add_task.css">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/page.css">
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Hello World</h1>
+      </div>
+    </div>
 
-    <h1>Hello World</h1>
     <div class="container-fluid">
 
       <!-- For adding tasks -->
       <div class="row">
-      <button class="add-task">Add Task</button>
+        <button class="add-task btn btn-default btn-sm">Add Task</button>
         <div class="add-open">
-          <div class=".col-md12">
+          <div class="col-md12 input-group">
             <input class="add-title" type="text" placeholder="Title" />
             <input class="add-desc" type="text" placeholder="Description" />
             <input class="add-date" type="text" placeholder="Ex. 01/31/2017" value="01/30/2017"/>
             <input class="add-time" type="text" placeholder="Ex. 15:30" value="15:30"/>
-            <button class="submit-task">Submit</button>
-            <div class="tags">
+            <button class="submit-task btn btn-default btn-sm">Submit</button>
+            <div class="tags input-group-addon">
               <input class="add-tag" type="text" placeholder="Tag" />
               <button class="submit-tag">+</button>
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- div.row end -->
 
-      <div class="container">
-        <div class="row">
-          <div class=".col-md12">
-            <!-- For sorting by tags -->
-            <div class="sort">
-            </div>
+      <!-- For sorting by tags -->
+      <div class="row">
+        <div class="col-md12">
+          <div class="sort btn-group">
           </div>
         </div>
-      </div>
+      </div><!-- div.row end -->
 
-      <div class="container">
-        <div class="row">
-          <div class=".col-md12">
-            <!-- Shows tasks -->
-            <div class="list">
-            </div>
+      <!-- Shows tasks -->
+      <div class="row">
+        <div class="col-md12">
+          <div class="task-list">
           </div>
         </div>
-      </div>
+      </div><!-- div.row end -->
 
-    </div>
+    </div><!-- div.container-fluid end -->
   </body>
 </html>
