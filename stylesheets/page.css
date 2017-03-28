@@ -6,3 +6,7 @@
 h1, h2, h4, p {
   color: white;
 }
+
+.col-md-12, .tags  {
+  padding: 15px;
+}
